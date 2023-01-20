@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="refresh" content="30">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - Accelo Mobility</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <style>
+        .flex_container{
+            display:flex;
+        }
+        .box{
+            
+            width: 200px;
+            height: 200px; 
+            background-color: white;
+            color: darkblue;
+            text-align: center;
+            margin: 10px;
+            border: none;
+            border: none;
+            border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);
+        }
+    </style>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>Accelo Mobility</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Dashboard</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
+                    </div>
+                    
+                    <div class="flex_container">
+                        <div class="box">
+                            Voltage
+                            <voltage_text style="font-size: 35px;"></voltage_text>
+                        </div>
+                        <div class="box">
+                            Speed
+                            <speed_text style="font-size: 45px;"></speed_text>
+                        </div>
+                        <div class="box">
+                            Current
+                            <current_text style="font-size: 45px;"></current_text>
+                        </div>
+                    </div>
+                    
+                    <div>
+                
+                        <!-- rpm x speed -->
+                        <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="300" height="300" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63c934f7-cc24-43ce-8118-b7f44234dc49&maxDataAge=10&theme=light&autoRefresh=true"></iframe>
+                        <!-- gps position -->
+                        <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="300" height="300" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63c90e76-a703-4c59-83fc-3abf05a08c05&maxDataAge=10&theme=light&autoRefresh=true"></iframe>
+                        <!-- rpm x motor temp -->
+                        <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="300" height="300" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63c912e9-a703-478a-87db-3abf05a2e759&maxDataAge=10&theme=light&autoRefresh=true"></iframe>
+                        <!-- current x voltage -->
+                        <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="300" height="300" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63c913b3-7fb8-4649-8c01-329c6c6d1b00&maxDataAge=10&theme=light&autoRefresh=true"></iframe>     
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Accelo Mobility 2023</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/theme.js"></script>
+
+    <script type="text/javascript">
+               
+
+        fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
+        .then(
+            res => {
+                
+                return res.json();
+            })
+        .then(
+            data => {
+                    
+                console.log(data);
+                data.body.beast.forEach(beast => {
+                    const markup = `<ul>${beast.voltage}</ul>`;
+                    document.querySelector('voltage_text').insertAdjacentHTML("beforeend", markup);
+                });
+            }
+        )
+        
+        .catch(error => console.log(error));
+    
+    
+    </script>
+
+    <script type="text/javascript">
+        fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
+        .then(
+            res => {
+                return res.json();
+            })
+        .then(
+            data => {
+
+                console.log(data);
+                data.body.beast.forEach(beast => {
+                    const markup = `<ul>${beast.current}</ul>`;
+                    document.querySelector('current_text').insertAdjacentHTML("beforeend", markup);
+                });
+            }
+        )
+        .catch(error => console.log(error));
+        
+    </script>
+
+    <script type="text/javascript">
+        fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
+        .then(
+            res => {
+                return res.json();
+            })
+        .then(
+            data => {
+
+                console.log(data);
+                data.body.beast.forEach(beast => {
+                    const markup = `<ul>${beast.speed}</ul>`;
+                    document.querySelector('speed_text').insertAdjacentHTML("beforeend", markup);
+                });
+            }
+        )
+        .catch(error => console.log(error));
+        
+    </script>
+</body>
+</html>
