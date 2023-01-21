@@ -9,14 +9,18 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+
+    <!-- our css for our real time data -->
     <style>
+        
         .flex_container{
             display:flex;
+            width:1270px;
         }
         .box{
             
-            width: 200px;
-            height: 200px; 
+            width: 300px;
+            height: 120px; 
             background-color: white;
             color: darkblue;
             text-align: center;
@@ -32,8 +36,8 @@
     <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>Accelo Mobility</span></div>
+                    <!-- <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div> -->
+                    <div class="sidebar-brand-text mx-3"><br><img src="Accelo Logo PNG.png" alt="Accelo Logo" width="150" height="75"></div>
                 </a>
                 <hr class="sidebar-divider my-0">
             </div>
@@ -41,38 +45,76 @@
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 <div class="container-fluid">
-                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Dashboard</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
-                    </div>
                     
+                    <h3 class="text-dark mb-0">
+                        <br>Dashboard</h3>
+                        <subheading style="font-size: 18px; color:rgb(189, 182, 182);text-align: left;"></subheading>
+
+                    <!-- container containing real time values of data -->
                     <div class="flex_container">
+                        
                         <div class="box">
-                            Voltage
-                            <voltage_text style="font-size: 35px;"></voltage_text>
+                            <br />Voltage<br />
+                            <voltage_text name="voltage_text" style="font-size: 35px; display: inline-block; text-align: left;" ></voltage_text><br />
                         </div>
                         <div class="box">
-                            Speed
-                            <speed_text style="font-size: 45px;"></speed_text>
+                            <br />Speed<br />
+                            <speed_text style="font-size: 35px; display: inline-block; text-align: left;"></speed_text><br />
                         </div>
                         <div class="box">
-                            Current
-                            <current_text style="font-size: 45px;"></current_text>
+                            <br />Current<br />
+                            <current_text style="font-size: 35px; display: inline-block; text-align: left;"></current_text><br />
                         </div>
-                    </div>
-                    
-                    <div>
-                
-                        <!-- rpm x speed -->
-                        <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="300" height="300" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63c934f7-cc24-43ce-8118-b7f44234dc49&maxDataAge=10&theme=light&autoRefresh=true"></iframe>
-                        <!-- gps position -->
-                        <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="300" height="300" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63c90e76-a703-4c59-83fc-3abf05a08c05&maxDataAge=10&theme=light&autoRefresh=true"></iframe>
-                        <!-- rpm x motor temp -->
-                        <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="300" height="300" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63c912e9-a703-478a-87db-3abf05a2e759&maxDataAge=10&theme=light&autoRefresh=true"></iframe>
-                        <!-- current x voltage -->
-                        <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="300" height="300" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63c913b3-7fb8-4649-8c01-329c6c6d1b00&maxDataAge=10&theme=light&autoRefresh=true"></iframe>     
+                        <div class="box">
+                            <br />Constant Temperature<br />
+                            <const_temp_text style="font-size: 35px; display: inline-block; text-align: left;"></const_temp_text><br />
+                        </div>
+						<div class="box">
+                            <br />Motor Temperature<br />
+                            <motor_temperature_text style="font-size: 35px; display: inline-block; text-align: left;"></motor_temperature_text><br />
+                        </div>
+						<div class="box">
+                            <br />Wire Temperature<br />
+                            <wire_temperature_text style="font-size: 35px; display: inline-block; text-align: left;"></wire_temperature_text><br />
+                        </div>
                         
                     </div>
-                    
+                    <!-- this is our data from mongodb -->
+                    <table cellpadding="10" cellspacing="13">
+                        <tr>
+                            <td>
+                                <!-- rpm x speed -->
+                                <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="255" height="250" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63c934f7-cc24-43ce-8118-b7f44234dc49&maxDataAge=10&theme=light&autoRefresh=true"></iframe>
+                            </td>
+                            <td>
+                                 <!-- rpm x motor temp -->
+                                <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="255" height="250" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63c912e9-a703-478a-87db-3abf05a2e759&maxDataAge=10&theme=light&autoRefresh=true"></iframe>
+
+                            </td>
+                            <td>
+                                <!-- current x voltage -->
+                                <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="255" height="250" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63c913b3-7fb8-4649-8c01-329c6c6d1b00&maxDataAge=10&theme=light&autoRefresh=true"></iframe>
+                            </td>
+                            <td rowspan="2">
+                                <!-- gps position -->
+                                <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="424" height="528" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63c90e76-a703-4c59-83fc-3abf05a08c05&maxDataAge=60&theme=light&autoRefresh=true"></iframe>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- current x wire temp -->
+                                <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="255" height="250" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63c94109-e13e-49f2-8953-90c76eaf39cd&maxDataAge=10&theme=light&autoRefresh=true"></iframe>
+                            </td>
+                            <td>
+                                 <!-- voltage x time -->
+                                <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="255" height="250" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63c903c3-e13e-4dcf-8aff-90c76e87d3ae&maxDataAge=10&theme=light&autoRefresh=true"></iframe>
+                            </td>
+                            <td>
+                                <!--vehicle speed (speed x time)  -->
+                                <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="255" height="250" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63c901c9-23d1-4180-8884-81a842a80df6&maxDataAge=10&theme=light&autoRefresh=true"></iframe>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             
@@ -88,9 +130,9 @@
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/theme.js"></script>
 
+    <!-- live voltage data -->
     <script type="text/javascript">
                
-
         fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
         .then(
             res => {
@@ -107,13 +149,13 @@
                 });
             }
         )
-        
         .catch(error => console.log(error));
-    
     
     </script>
 
+    <!-- live current data -->
     <script type="text/javascript">
+
         fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
         .then(
             res => {
@@ -129,11 +171,13 @@
                 });
             }
         )
-        .catch(error => console.log(error));
-        
+        .catch(error => console.log(error)); 
+
     </script>
 
+    <!-- live speed data -->
     <script type="text/javascript">
+
         fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
         .then(
             res => {
@@ -150,7 +194,99 @@
             }
         )
         .catch(error => console.log(error));
+
+    </script>
+
+    <!-- live const_temp data -->
+    <script type="text/javascript">
+               
+        fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
+        .then(
+            res => {
+                
+                return res.json();
+            })
+        .then(
+            data => {
+                    
+                console.log(data);
+                data.body.beast.forEach(beast => {
+                    const markup = `<ul>${beast.cont_tmp}</ul>`;
+                    document.querySelector('const_temp_text').insertAdjacentHTML("beforeend", markup);
+                });
+            }
+        )
+        .catch(error => console.log(error));
+    
+    </script>
+
+	<!-- live motor temperature data -->
+    <script type="text/javascript">
+                
+            fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
+            .then(
+                res => {
+                    
+                    return res.json();
+                })
+            .then(
+                data => {
+                        
+                    console.log(data);
+                    data.body.beast.forEach(beast => {
+                        const markup = `<ul>${beast.motor_tmp}</ul>`;
+                        document.querySelector('motor_temperature_text').insertAdjacentHTML("beforeend", markup);
+                    });
+                }
+            )
+            .catch(error => console.log(error));
         
     </script>
+
+    <!-- live wire temperature data -->
+    <script type="text/javascript">         
+
+            fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
+            .then(
+                res => {
+                    
+                    return res.json();
+                })
+            .then(
+                data => {
+                        
+                    console.log(data);
+                    data.body.beast.forEach(beast => {
+                        const markup = `<ul>${beast.wire_tmp}</ul>`;
+                        document.querySelector('wire_temperature_text').insertAdjacentHTML("beforeend", markup);
+                    });
+                }
+            ) 
+            .catch(error => console.log(error));
+         
+    </script>
+
+    <script type="text/javascript">         
+
+        fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
+        .then(
+            res => {
+                
+                return res.json();
+            })
+        .then(
+            data => {
+                    
+                console.log(data);
+                    data.body.beast.forEach(beast => {
+                    const markup = `<ul>${beast.id}</ul>`;
+                    document.querySelector('subheading').insertAdjacentHTML("beforeend", markup);
+                });
+            }
+        ) 
+        .catch(error => console.log(error));
+    
+    </script>
+
 </body>
 </html>
