@@ -85,8 +85,8 @@
                             <current_text style="font-size: 35px; display: inline-block; text-align: left;"></current_text><br />
                         </div>
                         <div class="box">
-                            Controller Temperature
-                            <cont_temp_text style="font-size: 35px; display: inline-block; text-align: left;"></const_temp_text><br />
+                            <br />Controller Temperature<br />
+                            <controller_temperature_text style="font-size: 35px; display: inline-block; text-align: left;"></motor_temperature_text><br />
                         </div>
 						<div class="box">
                             <br />Motor Temperature<br />
@@ -231,7 +231,7 @@
                 console.log(data);
                 data.body.beast.forEach(beast => {
                     const markup = `<ul>${beast.c_t}</ul>`;
-                    document.querySelector('cont_temp_text').insertAdjacentHTML("beforeend", markup);
+                    document.querySelector('controller_temp_text').insertAdjacentHTML("beforeend", markup);
                 });
             }
         )
