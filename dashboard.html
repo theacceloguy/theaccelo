@@ -216,7 +216,7 @@
 
     </script>
 
-    <!-- live const_temp data -->
+    <!-- live controller_temp data -->
     <script type="text/javascript">
                
         fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
@@ -231,7 +231,7 @@
                 console.log(data);
                 data.body.beast.forEach(beast => {
                     const markup = `<ul>${beast.c_t}</ul>`;
-                    document.querySelector('controller_temp_text').insertAdjacentHTML("beforeend", markup);
+                    document.querySelector('controller_temperature_text').insertAdjacentHTML("beforeend", markup);
                 });
             }
         )
