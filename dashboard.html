@@ -163,7 +163,7 @@
                     
                 console.log(data);
                 data.body.beast.forEach(beast => {
-                    const markup = `<ul>${beast.voltage}</ul>`;
+                    const markup = `<ul>${beast.v}</ul>`;
                     document.querySelector('voltage_text').insertAdjacentHTML("beforeend", markup);
                 });
             }
@@ -185,7 +185,7 @@
 
                 console.log(data);
                 data.body.beast.forEach(beast => {
-                    const markup = `<ul>${beast.current}</ul>`;
+                    const markup = `<ul>${beast.c}</ul>`;
                     document.querySelector('current_text').insertAdjacentHTML("beforeend", markup);
                 });
             }
@@ -207,7 +207,7 @@
 
                 console.log(data);
                 data.body.beast.forEach(beast => {
-                    const markup = `<ul>${beast.speed}</ul>`;
+                    const markup = `<ul>${beast.s}</ul>`;
                     document.querySelector('speed_text').insertAdjacentHTML("beforeend", markup);
                 });
             }
@@ -230,7 +230,7 @@
                     
                 console.log(data);
                 data.body.beast.forEach(beast => {
-                    const markup = `<ul>${beast.cont_tmp}</ul>`;
+                    const markup = `<ul>${beast.c_t}</ul>`;
                     document.querySelector('cont_temp_text').insertAdjacentHTML("beforeend", markup);
                 });
             }
@@ -253,7 +253,7 @@
                         
                     console.log(data);
                     data.body.beast.forEach(beast => {
-                        const markup = `<ul>${beast.motor_tmp}</ul>`;
+                        const markup = `<ul>${beast.m_t}</ul>`;
                         document.querySelector('motor_temperature_text').insertAdjacentHTML("beforeend", markup);
                     });
                 }
@@ -276,7 +276,7 @@
                         
                     console.log(data);
                     data.body.beast.forEach(beast => {
-                        const markup = `<ul>${beast.wire_tmp}</ul>`;
+                        const markup = `<ul>${beast.w_t}</ul>`;
                         document.querySelector('wire_temperature_text').insertAdjacentHTML("beforeend", markup);
                     });
                 }
