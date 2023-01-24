@@ -299,6 +299,7 @@
          
     </script>
 
+    <!-- id of our vehicle -->
     <script type="text/javascript">         
 
         fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
@@ -311,14 +312,14 @@
             data => {
                     
                 console.log(data);
-                    data.body.beast.forEach(beast => {
+                data.body.beast.forEach(beast => {
                     const markup = `<ul>${beast.id}</ul>`;
                     document.querySelector('subheading').insertAdjacentHTML("beforeend", markup);
                 });
             }
         ) 
         .catch(error => console.log(error));
-    
+     
     </script>
 
 </body>
