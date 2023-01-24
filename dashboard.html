@@ -73,28 +73,28 @@
                     <div class="flex_container">
                         
                         <div class="box">
-                            Voltage
-                            <voltage_text style="font-size: 35px;" ></voltage_text>
+                            <br />Voltage<br />
+                            <voltage_text id="voltage" style="font-size: 40px; display: inline-block; text-align: left;" ></voltage_text><br />
                         </div>
                         <div class="box">
-                            Speed
-                            <speed_text style="font-size: 35px;"></speed_text>
+                            <br />Speed<br />
+                            <speed_text id="speed" style="font-size: 40px; display: inline-block; text-align: left;"></speed_text><br />
                         </div>
                         <div class="box">
-                            Current
-                            <current_text style="font-size: 35px;"></current_text>
+                            <br />Current<br />
+                            <current_text id="current" style="font-size: 40px; display: inline-block; text-align: left;"></current_text><br />
                         </div>
                         <div class="box">
-                            Controller Temperature
-                            <controller_temperature_text style="font-size: 35px;"></motor_temperature_text>
+                            <br />Controller Temperature<br />
+                            <controller_temp_text id="cont_temp" style="font-size: 40px; display: inline-block; text-align: left;"></controller_temp_text><br />
                         </div>
 						<div class="box">
-                            Motor Temperature
-                            <motor_temperature_text style="font-size: 35px;"></motor_temperature_text>
+                            <br />Motor Temperature<br />
+                            <motor_temperature_text id="motor_temp" style="font-size: 40px; display: inline-block; text-align: left;"></motor_temperature_text><br />
                         </div>
 						<div class="box">
-                            Wire Temperature
-                            <wire_temperature_text style="font-size: 35px;"></wire_temperature_text>
+                            <br />Wire Temperature<br />
+                            <wire_temperature_text id="wire_temp" style="font-size:40px; display: inline-block; text-align: left;"></wire_temperature_text><br />
                         </div>
                         
                     </div>
@@ -320,6 +320,57 @@
         ) 
         .catch(error => console.log(error));
      
+    </script>
+
+    <script type="text/javascript">
+        var v = document.getElementById("voltage") 
+        var c = document.getElementById("current") 
+        var s = document.getElementById("speed")
+        var control = document.getElementById("cont_temp")
+        var motor = document.getElementById("motor_temp")
+        var wire = document.getElementById("wire_temp")  
+
+            if(v == 74.83871){
+                v.style.color = "red";
+            }
+            else {
+                v.style.color = "green";
+            }
+
+            if(c >= 50){
+                c.style.color = "red";
+            }
+            else {
+                c.style.color = "green";
+            }
+
+            if(s >= 50){
+                s.style.color = "red";
+            }
+            else {
+                s.style.color = "green";
+            }
+
+            if(control >= 50){
+                control.style.color = "red";
+            }
+            else {
+                control.style.color = "green";
+            }
+
+            if(motor >= 50){
+                motor.style.color = "red";
+            }
+            else {
+                motor.style.color = "green";
+            }
+
+            if(wire >= 50){
+                wire.style.color = "red";
+            }
+            else {
+                wire.style.color = "green";
+            }
     </script>
 
 </body>
