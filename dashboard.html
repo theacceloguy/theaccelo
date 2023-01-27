@@ -177,8 +177,17 @@
                     
                 console.log(data);
                 data.body.beast.forEach(beast => {
-                    const markup = `<ul>${beast.v}</ul>`;
+                    const markup = `${beast.v}`;
                     document.querySelector('voltage_text').insertAdjacentHTML("beforeend", markup);
+
+                    if (markup >= 50)
+                    {
+                        document.getElementById("voltage").style.color = "red";
+                    }
+                    else
+                    {
+                        document.getElementById("voltage").style.color = "green";
+                    }
                 });
             }
         )
@@ -199,8 +208,17 @@
 
                 console.log(data);
                 data.body.beast.forEach(beast => {
-                    const markup = `<ul>${beast.c}</ul>`;
+                    const markup = `${beast.c}`;
                     document.querySelector('current_text').insertAdjacentHTML("beforeend", markup);
+
+                    if (markup >= 50)
+                    {
+                        document.getElementById("current").style.color = "red";
+                    }
+                    else
+                    {
+                        document.getElementById("current").style.color = "green";
+                    }
                 });
             }
         )
@@ -221,8 +239,17 @@
 
                 console.log(data);
                 data.body.beast.forEach(beast => {
-                    const markup = `<ul>${beast.s}</ul>`;
+                    const markup = `${beast.s}`;
                     document.querySelector('speed_text').insertAdjacentHTML("beforeend", markup);
+
+                    if (markup >= 50)
+                    {
+                        document.getElementById("speed").style.color = "red";
+                    }
+                    else
+                    {
+                        document.getElementById("speed").style.color = "green";
+                    }
                 });
             }
         )
@@ -244,8 +271,17 @@
                     
                 console.log(data);
                 data.body.beast.forEach(beast => {
-                    const markup = `<ul>${beast.c_t}</ul>`;
+                    const markup = `${beast.c_t}`;
                     document.querySelector('controller_temp_text').insertAdjacentHTML("beforeend", markup);
+
+                    if (markup >= 50)
+                    {
+                        document.getElementById("cont_temp").style.color = "red";
+                    }
+                    else
+                    {
+                        document.getElementById("cont_temp").style.color = "green";
+                    }
                 });
             }
         )
@@ -267,9 +303,18 @@
                         
                     console.log(data);
                     data.body.beast.forEach(beast => {
-                        const markup = `<ul>${beast.m_t}</ul>`;
+                        const markup = `${beast.m_t}`;
                         document.querySelector('motor_temperature_text').insertAdjacentHTML("beforeend", markup);
-                    });
+
+                        if (markup >= 50)
+                        {
+                            document.getElementById("motor_temp").style.color = "red";
+                        }
+                        else
+                        {
+                            document.getElementById("motor_temp").style.color = "green";
+                        }
+                        });
                 }
             )
             .catch(error => console.log(error));
@@ -290,13 +335,45 @@
                         
                     console.log(data);
                     data.body.beast.forEach(beast => {
-                        const markup = `<ul>${beast.w_t}</ul>`;
+                        const markup = `${beast.w_t}`;
                         document.querySelector('wire_temperature_text').insertAdjacentHTML("beforeend", markup);
+
+                        if (markup >= 50)
+                        {
+                            document.getElementById("wire_temp").style.color = "red";
+                        }
+                        else
+                        {
+                            document.getElementById("wire_temp").style.color = "green";
+                        }
                     });
                 }
             ) 
             .catch(error => console.log(error));
          
+    </script>
+
+    <!-- live number of satellites data -->
+    <script type="text/javascript">         
+
+        fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
+        .then(
+            res => {
+                
+                return res.json();
+            })
+        .then(
+            data => {
+                    
+                console.log(data);
+                data.body.beast.forEach(beast => {
+                    const markup = `${beast.ns}`;
+                    document.querySelector('satllite_text').insertAdjacentHTML("beforeend", markup);
+                });
+            }
+        ) 
+        .catch(error => console.log(error));
+     
     </script>
 
     <!-- id of our vehicle -->
@@ -313,64 +390,13 @@
                     
                 console.log(data);
                 data.body.beast.forEach(beast => {
-                    const markup = `<ul>${beast.id}</ul>`;
+                    const markup = `${beast.id}`;
                     document.querySelector('subheading').insertAdjacentHTML("beforeend", markup);
                 });
             }
         ) 
         .catch(error => console.log(error));
      
-    </script>
-
-    <script type="text/javascript">
-        var v = document.getElementById("voltage") 
-        var c = document.getElementById("current") 
-        var s = document.getElementById("speed")
-        var control = document.getElementById("cont_temp")
-        var motor = document.getElementById("motor_temp")
-        var wire = document.getElementById("wire_temp")  
-
-            if(v == 74.83871){
-                v.style.color = "red";
-            }
-            else {
-                v.style.color = "green";
-            }
-
-            if(c >= 50){
-                c.style.color = "red";
-            }
-            else {
-                c.style.color = "green";
-            }
-
-            if(s >= 50){
-                s.style.color = "red";
-            }
-            else {
-                s.style.color = "green";
-            }
-
-            if(control >= 50){
-                control.style.color = "red";
-            }
-            else {
-                control.style.color = "green";
-            }
-
-            if(motor >= 50){
-                motor.style.color = "red";
-            }
-            else {
-                motor.style.color = "green";
-            }
-
-            if(wire >= 50){
-                wire.style.color = "red";
-            }
-            else {
-                wire.style.color = "green";
-            }
     </script>
 
 </body>
