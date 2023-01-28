@@ -72,29 +72,29 @@
                     <!-- container containing real time values of data -->
                     <div class="flex_container">
                         
-                        <div class="box">
+                        <div class="box" id="voltage">
                             <br />Voltage<br />
-                            <voltage_text id="voltage" style="font-size: 40px;" ></voltage_text><br />
+                            <voltage_text style="font-size: 40px;" ></voltage_text><br />
                         </div>
-                        <div class="box">
+                        <div class="box" id="speed">
                             <br />Speed<br />
-                            <speed_text id="speed" style="font-size: 40px;"></speed_text><br />
+                            <speed_text style="font-size: 40px;"></speed_text><br />
                         </div>
-                        <div class="box">
+                        <div class="box" id="current">
                             <br />Current<br />
-                            <current_text id="current" style="font-size: 40px;"></current_text><br />
+                            <current_text style="font-size: 40px;"></current_text><br />
                         </div>
-                        <div class="box">
+                        <div class="box" id="cont_temp">
                             <br />Controller Temperature<br />
-                            <controller_temp_text id="cont_temp" style="font-size: 40px;"></controller_temp_text><br />
+                            <controller_temp_text style="font-size: 40px;"></controller_temp_text><br />
                         </div>
-						<div class="box">
+						<div class="box" id="motor_temp">
                             <br />Motor Temperature<br />
-                            <motor_temperature_text id="motor_temp" style="font-size: 40px;"></motor_temperature_text><br />
+                            <motor_temperature_text style="font-size: 40px;"></motor_temperature_text><br />
                         </div>
-						<div class="box">
+						<div class="box" id="wire_temp">
                             <br />Wire Temperature<br />
-                            <wire_temperature_text id="wire_temp" style="font-size:40px;"></wire_temperature_text><br />
+                            <wire_temperature_text style="font-size:40px;"></wire_temperature_text><br />
                         </div>
                         
                     </div>
@@ -182,11 +182,11 @@
 
                     if (markup >= 50)
                     {
-                        document.getElementById("voltage").style.color = "red";
+                        document.getElementById("voltage").style.backgroundColor = "#ad0000";
                     }
                     else
                     {
-                        document.getElementById("voltage").style.color = "green";
+                        document.getElementById("voltage").style.backgroundColor = "#129f31";
                     }
                 });
             }
@@ -213,11 +213,11 @@
 
                     if (markup >= 50)
                     {
-                        document.getElementById("current").style.color = "red";
+                        document.getElementById("current").style.backgroundColor = "#ad0000";
                     }
                     else
                     {
-                        document.getElementById("current").style.color = "green";
+                        document.getElementById("current").style.backgroundColor = "#129f31";
                     }
                 });
             }
@@ -244,11 +244,11 @@
 
                     if (markup >= 50)
                     {
-                        document.getElementById("speed").style.color = "red";
+                        document.getElementById("speed").style.backgroundColor = "#ad0000";
                     }
                     else
                     {
-                        document.getElementById("speed").style.color = "green";
+                        document.getElementById("speed").style.backgroundColor = "#129f31";
                     }
                 });
             }
@@ -276,11 +276,11 @@
 
                     if (markup >= 50)
                     {
-                        document.getElementById("cont_temp").style.color = "red";
+                        document.getElementById("cont_temp").style.backgroundColor = "#ad0000";
                     }
                     else
                     {
-                        document.getElementById("cont_temp").style.color = "green";
+                        document.getElementById("cont_temp").style.backgroundColor = "#129f31";
                     }
                 });
             }
@@ -308,11 +308,11 @@
 
                         if (markup >= 50)
                         {
-                            document.getElementById("motor_temp").style.color = "red";
+                            document.getElementById("motor_temp").style.backgroundColor = "#ad0000";
                         }
                         else
                         {
-                            document.getElementById("motor_temp").style.color = "green";
+                            document.getElementById("motor_temp").style.backgroundColor = "#129f31";
                         }
                         });
                 }
@@ -340,11 +340,11 @@
 
                         if (markup >= 50)
                         {
-                            document.getElementById("wire_temp").style.color = "red";
+                            document.getElementById("wire_temp").style.backgroundColor = "#ad0000";
                         }
                         else
                         {
-                            document.getElementById("wire_temp").style.color = "green";
+                            document.getElementById("wire_temp").style.backgroundColor = "#129f31";
                         }
                     });
                 }
