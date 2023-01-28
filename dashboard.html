@@ -147,6 +147,36 @@
                             </td>
                         </tr>
                     </table>
+                    <!-- Max Values -->
+                    <div class="flex_container">
+                        
+                        <div class="box">
+                            <!-- Max Voltage -->
+                            <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="190" height="120" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63d51bf8-7df1-4bb3-828e-8dfadeceb0f3&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+                        </div>
+                        <div class="box">
+                            <!-- Max Speed -->
+                            <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="190" height="120" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63d519b0-4d04-451a-8e5c-d900bb1a68b9&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+                        </div>
+                        <div class="box">
+                            <!-- Max Current -->
+                            <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="190" height="120" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63d51a72-9000-457e-859e-266f748e3569&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+                        </div>
+
+                        <div class="box">
+                            <!-- Max Motor Temperature -->
+                            <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="190" height="120" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63d51926-4d04-4cb5-8cb9-d900bb1a295e&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+                        </div>
+                        <div class="box">
+                            <!-- Max Controller Temperature -->
+                            <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="190" height="120" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63d51b54-7a1a-4afe-8618-34b2a9823c28&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+                        </div>
+                        <div class="box">
+                            <!-- Max Wire Temperature -->
+                            <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="190" height="120" src="https://charts.mongodb.com/charts-project-0-llped/embed/charts?id=63d51b9d-78bf-40c7-8199-49f907a2463a&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+                        </div>
+                    
+                </div>
                 </div>
             </div>
             
@@ -177,6 +207,7 @@
                 console.log(data);
                 data.body.beast.forEach(beast => {
                     const markup = `${beast.v}`;
+                    
                     document.querySelector('voltage_text').insertAdjacentHTML("beforeend", markup);
 
                     //conditional box color change of voltage real time data
