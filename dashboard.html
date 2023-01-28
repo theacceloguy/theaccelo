@@ -179,7 +179,7 @@
                     const markup = `${beast.v}`;
                     document.querySelector('voltage_text').insertAdjacentHTML("beforeend", markup);
 
-                    if (markup >= 50)
+                    if (markup > 65)
                     {
                         document.getElementById("voltage").style.backgroundColor = "#ad0000";
                     }
@@ -210,7 +210,7 @@
                     const markup = `${beast.c}`;
                     document.querySelector('current_text').insertAdjacentHTML("beforeend", markup);
 
-                    if (markup >= 50)
+                    if (markup > 150)
                     {
                         document.getElementById("current").style.backgroundColor = "#ad0000";
                     }
@@ -241,7 +241,7 @@
                     const markup = `${beast.s}`;
                     document.querySelector('speed_text').insertAdjacentHTML("beforeend", markup);
 
-                    if (markup >= 50)
+                    if (markup > 60)
                     {
                         document.getElementById("speed").style.backgroundColor = "#ad0000";
                     }
@@ -273,9 +273,12 @@
                     const markup = `${beast.c_t}`;
                     document.querySelector('controller_temp_text').insertAdjacentHTML("beforeend", markup);
 
-                    if (markup >= 50)
+                    if (markup > 50)
                     {
                         document.getElementById("cont_temp").style.backgroundColor = "#ad0000";
+                    }
+                    else if (40 < markup <= 50 ) {
+                        document.getElementById("cont_temp").style.backgroundColor = "#F78702";
                     }
                     else
                     {
@@ -305,9 +308,14 @@
                         const markup = `${beast.m_t}`;
                         document.querySelector('motor_temperature_text').insertAdjacentHTML("beforeend", markup);
 
-                        if (markup >= 50)
+                        if (markup > 50)
                         {
                             document.getElementById("motor_temp").style.backgroundColor = "#ad0000";
+                        }
+                        else if (40 < markup <= 50 ) {
+
+                            document.getElementById("motor_temp").style.backgroundColor = "#F78702";
+
                         }
                         else
                         {
@@ -337,14 +345,20 @@
                         const markup = `${beast.w_t}`;
                         document.querySelector('wire_temperature_text').insertAdjacentHTML("beforeend", markup);
 
-                        if (markup >= 50)
+                        if (markup > 50)
                         {
                             document.getElementById("wire_temp").style.backgroundColor = "#ad0000";
+                        }
+                        else if (40 < markup <= 50 ) {
+
+                            document.getElementById("wire_temp").style.backgroundColor = "#F78702";
+                            
                         }
                         else
                         {
                             document.getElementById("wire_temp").style.backgroundColor = "#129f31";
                         }
+                        
                     });
                 }
             ) 
