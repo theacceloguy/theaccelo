@@ -180,7 +180,7 @@
                     document.querySelector('voltage_text').insertAdjacentHTML("beforeend", markup);
 
                     //conditional box color change of voltage real time data
-                    if (markup > 65)
+                    if (markup < 65)
                     {
                         document.getElementById("voltage").style.backgroundColor = "#ad0000"; //red
                     }
