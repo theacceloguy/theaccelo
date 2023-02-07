@@ -194,7 +194,7 @@
 
     <!-- live voltage data -->
     <script type="text/javascript">
-               
+        setInterval(function(){    
         fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
         .then(
             res => {
@@ -202,13 +202,14 @@
                 return res.json();
             })
         .then(
+            
             data => {
-                    
                 console.log(data);
-                data.body.beast.forEach(beast => {
+                
+                    data.body.beast.forEach(beast => {
                     const markup = `${beast.v}`;
-                    
-                    document.querySelector('voltage_text').insertAdjacentHTML("beforeend", markup);
+                                                     
+                    document.querySelector('voltage_text').innerHTML = markup;
 
                     //conditional box color change of voltage real time data
                     if (markup < 65)
@@ -220,27 +221,31 @@
                         document.getElementById("voltage").style.backgroundColor = "#129f31"; //green
                     }
                 });
-            }
-        )
+                                    
+            })
+        },2000)
+
         .catch(error => console.log(error));
     
     </script>
 
     <!-- live current data -->
     <script type="text/javascript">
-
+    setInterval(function(){    
         fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
         .then(
             res => {
                 return res.json();
             })
         .then(
+            
             data => {
 
                 console.log(data);
+
                 data.body.beast.forEach(beast => {
                     const markup = `${beast.c}`;
-                    document.querySelector('current_text').insertAdjacentHTML("beforeend", markup);
+                    document.querySelector('current_text').innerHTML = markup;
 
                     //conditional box color change of current real time data
                     if (markup > 150)
@@ -254,25 +259,28 @@
                 });
             }
         )
-        .catch(error => console.log(error)); 
+    },2000)
+    .catch(error => console.log(error)); 
 
     </script>
 
     <!-- live speed data -->
     <script type="text/javascript">
-
+    setInterval(function(){
         fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
         .then(
             res => {
                 return res.json();
             })
         .then(
+            
             data => {
 
                 console.log(data);
+
                 data.body.beast.forEach(beast => {
                     const markup = `${beast.s}`;
-                    document.querySelector('speed_text').insertAdjacentHTML("beforeend", markup);
+                    document.querySelector('speed_text').innerHTML = markup;
 
                     //conditional box color change of speed real time data
                     if (markup > 60)
@@ -284,15 +292,17 @@
                         document.getElementById("speed").style.backgroundColor = "#129f31"; //green
                     }
                 });
+
             }
         )
-        .catch(error => console.log(error));
+    },2000)
+    .catch(error => console.log(error));
 
     </script>
 
     <!-- live controller_temp data -->
     <script type="text/javascript">
-               
+    setInterval(function(){
         fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
         .then(
             res => {
@@ -300,12 +310,14 @@
                 return res.json();
             })
         .then(
+            
             data => {
                     
                 console.log(data);
+
                 data.body.beast.forEach(beast => {
                     const markup = `${beast.c_t}`;
-                    document.querySelector('controller_temp_text').insertAdjacentHTML("beforeend", markup);
+                    document.querySelector('controller_temp_text').innerHTML = markup;
 
                     //conditional box color change of controller temperature real time data
                     if (markup > 50)
@@ -323,13 +335,14 @@
                 });
             }
         )
-        .catch(error => console.log(error));
+    },2000)
+    .catch(error => console.log(error));
     
     </script>
 
 	<!-- live motor temperature data -->
     <script type="text/javascript">
-                
+    setInterval(function(){            
             fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
             .then(
                 res => {
@@ -337,12 +350,15 @@
                     return res.json();
                 })
             .then(
+                
                 data => {
                         
                     console.log(data);
+
                     data.body.beast.forEach(beast => {
+
                         const markup = `${beast.m_t}`;
-                        document.querySelector('motor_temperature_text').insertAdjacentHTML("beforeend", markup);
+                        document.querySelector('motor_temperature_text').innerHTML = markup;
 
                         //conditional box color change of motor temperature real time data
                         if (markup > 50)
@@ -360,15 +376,16 @@
                             document.getElementById("motor_temp").style.backgroundColor = "#129f31"; //green
                         }
                         });
+                    
                 }
             )
-            .catch(error => console.log(error));
-        
+        },2000)
+        .catch(error => console.log(error));
     </script>
 
     <!-- live wire temperature data -->
     <script type="text/javascript">         
-
+    setInterval(function(){ 
             fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
             .then(
                 res => {
@@ -376,12 +393,13 @@
                     return res.json();
                 })
             .then(
-                data => {
-                        
+                
+                data => {   
                     console.log(data);
+                    
                     data.body.beast.forEach(beast => {
                         const markup = `${beast.w_t}`;
-                        document.querySelector('wire_temperature_text').insertAdjacentHTML("beforeend", markup);
+                        document.querySelector('wire_temperature_text').innerHTML = markup;
 
                         //conditional box color change of wire temperature real time data
                         if (markup > 50)
@@ -391,23 +409,24 @@
                         else if (markup > 40 ) {
 
                             document.getElementById("wire_temp").style.backgroundColor = "#F78702"; //orange
-                            
+                                                
                         }
                         else
                         {
                             document.getElementById("wire_temp").style.backgroundColor = "#129f31"; //green
                         }
-                        
+                                            
                     });
+                        
                 }
-            ) 
-            .catch(error => console.log(error));
-         
+            )
+        },2000)
+        .catch(error => console.log(error));
     </script>
 
     <!-- live number of satellites data -->
-    <script type="text/javascript">         
-
+    <script type="text/javascript">
+    setInterval(function(){         
         fetch('https://fabfest.theacceloguy.com/backend/recent/beast')
         .then(
             res => {
@@ -420,11 +439,12 @@
                 console.log(data);
                 data.body.beast.forEach(beast => {
                     const markup = `${beast.ns}`;
-                    document.querySelector('satllite_text').insertAdjacentHTML("beforeend", markup);
+                    document.querySelector('satllite_text').innerHTML = markup;
                 });
             }
-        ) 
-        .catch(error => console.log(error));
+        )
+    },2000) 
+    .catch(error => console.log(error));
      
     </script>
 
